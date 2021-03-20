@@ -1,5 +1,9 @@
 package com.example.simpleweatherapp.model
 
+
 data class Forecast(
-        val temperature: String
+    //@SerializedName("main")
+    val main: Main,
+    //@SerializedName("weather")
+    val weather: List<Weather>
 )
