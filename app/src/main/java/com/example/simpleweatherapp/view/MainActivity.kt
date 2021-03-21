@@ -17,7 +17,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        viewModel.getData()
+        viewModel.getData(editText_city.text.toString())
+
+        button_search.setOnClickListener() {
+            viewModel.getData(editText_city.text.toString())
+        }
         viewModel.forecast.observe(
             this,
             Observer { textView_temperature.text = it!!.main.temperature.toString() })

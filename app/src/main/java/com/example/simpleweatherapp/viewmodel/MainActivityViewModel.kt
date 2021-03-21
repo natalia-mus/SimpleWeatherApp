@@ -13,8 +13,8 @@ class MainActivityViewModel : ViewModel() {
 
     val forecast = MutableLiveData<Forecast>()
 
-    fun getData() {
-        model.getDataFromAPI(object : RepositoryCallback<Forecast> {
+    fun getData(city: String) {
+        model.getDataFromAPI(city, object : RepositoryCallback<Forecast> {
             override fun onError(error: String?) {
                 Log.e("ViewModel", "ERROR")
             }

@@ -9,17 +9,25 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
+
 class Repository {
+
+    companion object {
+        const val UNITS = "metric"
+        const val API_KEY = "69135546828ada76b54fe3f6e48c5498"
+    }
 
     var instance: APIService? = null
 
     var forecast = MutableLiveData<Forecast>()
 
-    val CITY = "Katowice"
-    val API_KEY = "69135546828ada76b54fe3f6e48c5498"
+    /*val CITY = "Austin"
+    val UNITS = "metric"
+    val API_KEY = "69135546828ada76b54fe3f6e48c5498"*/
 
-    private lateinit var retrofit: Retrofit
-    private lateinit var apiService: APIService
+    private var retrofit: Retrofit
+    private var apiService: APIService
 
     init {
         retrofit = Retrofit.Builder()
@@ -33,8 +41,10 @@ class Repository {
 
     }
 
-    fun getDataFromAPI(callback: RepositoryCallback<Forecast>) {
-        apiService.getCurrentWeather().enqueue(object : Callback<Forecast> {
+    fun getDataFromAPI(city: String, callback: RepositoryCallback<Forecast>) {
+        //CITY = "$CITY&units=metric&appid=69135546828ada76b54fe3f6e48c5498"
+        //Log.e("city", CITY)
+        apiService.getCurrentWeather(city, UNITS, API_KEY).enqueue(object : Callback<Forecast> {
             override fun onFailure(call: Call<Forecast>, t: Throwable) {
                 Log.e("ERROR", "ERROR")
                 callback.onError("error happened")
