@@ -1,5 +1,7 @@
 package com.example.simpleweatherapp.model
 
+
 data class Forecast(
-        val temperature: String
+    val main: Main,
+    val weather: List<Weather>
 )
