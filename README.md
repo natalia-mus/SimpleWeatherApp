@@ -1,4 +1,4 @@
-# SimpleWeatherApp
+# Simple Weather App
 
 Simple weather app that allows to check actual forecast for given city in the world. Forecast contains icon showing current weather symbol, temperature (in Celsius degrees), short description, humidity percentage and pressure. User can check forecast for every city existing in API.
 
