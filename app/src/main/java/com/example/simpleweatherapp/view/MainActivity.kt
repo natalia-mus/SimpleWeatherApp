@@ -1,6 +1,7 @@
 package com.example.simpleweatherapp.view
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -32,9 +33,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateData(forecast: Forecast) {
 
-        // AndroidMainfest.xml >> aaplication section >> add "android:usesCleartextTraffic="true""
+        val icon = "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+
+        // AndroidMainfest.xml >> aplication section >> add "android:usesCleartextTraffic="true""
         Glide.with(this)
-            .load("http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png")
+            .load(icon)
             .override(80, 80)
             .into(imageView_icon)
 
@@ -42,9 +45,8 @@ class MainActivity : AppCompatActivity() {
         textView_description.text = forecast.weather[0].description
         textView_humidity.text = forecast.main.humidity.toString()
         textView_pressure.text = forecast.main.pressure.toString()
+
+        textView_humidity_unit.visibility = View.VISIBLE
+        textView_pressure_unit.visibility = View.VISIBLE
     }
 }
-
-
-// MVP_simple_sample
-// KotlinMVVM
