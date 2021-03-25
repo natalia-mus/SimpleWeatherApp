@@ -22,13 +22,20 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         viewModel.getData(editText_city.text.toString())
 
-        button_search.setOnClickListener() {
-            viewModel.getData(editText_city.text.toString())
-        }
+        setListeners()
+        setObservers()
+    }
 
+    private fun setObservers() {
         viewModel.forecast.observe(
             this,
             Observer { updateData(it) })
+    }
+
+    private fun setListeners() {
+        button_search.setOnClickListener() {
+            viewModel.getData(editText_city.text.toString())
+        }
     }
 
     private fun updateData(forecast: Forecast) {

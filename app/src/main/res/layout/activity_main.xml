@@ -37,19 +37,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--<Button
-            android:id="@+id/button_search"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="20dp"
-            android:layout_weight="0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editText_city"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/button_background"
-            android:foreground="@drawable/ic_baseline_search_24"/>!-->
-
         <ImageButton
             android:id="@+id/button_search"
             android:layout_width="50dp"
@@ -199,7 +186,7 @@
             android:id="@+id/textView_pressure_unit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="7dp"
             android:text="@string/pressure_unit"
             android:textColor="@color/dark_gray"
             android:textSize="22dp"
