@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateData(forecast: Forecast) {
 
-        // AndroidMainfest.xml >> aaplication section >> add "android:usesCleartextTraffic="true""
         Glide.with(this)
             .load("http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png")
             .override(80, 80)
