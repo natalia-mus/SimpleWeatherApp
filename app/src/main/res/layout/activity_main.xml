@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".view.MainActivity">
 
     <LinearLayout
@@ -21,24 +22,31 @@
             android:id="@+id/editText_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="5"
-            android:hint="city"
-            android:text="New York"
+            android:hint="@string/hint_city"
+            android:singleLine="true"
+            android:text="@string/city_name"
+            android:textAlignment="center"
+            android:textColorLink="@color/white"
             android:textSize="28dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/button_search"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <ImageButton
             android:id="@+id/button_search"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="20dp"
             android:layout_weight="0"
+            android:adjustViewBounds="true"
+            android:background="@drawable/button_background"
+            android:foreground="@drawable/ic_search_foreground"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/editText_city"
@@ -48,10 +56,9 @@
 
     <ImageView
         android:id="@+id/imageView_icon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="70dp"
-        android:src="@drawable/ic_outline_wb_sunny_24"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/no_data"
         app:layout_constraintBottom_toTopOf="@+id/temperature_section"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +68,6 @@
         android:id="@+id/temperature_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,19 +78,21 @@
             android:id="@+id/textView_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/default_temperature"
+            android:textColor="@color/dark_gray"
             android:textSize="70dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="20" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView_temperature_degrees_symbol"
+            android:id="@+id/textView_temperature_unit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/celsius_symbol"
+            android:text="@string/temperature_unit"
+            android:textColor="@color/dark_gray"
             android:textSize="45dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -98,18 +106,19 @@
         android:id="@+id/textView_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:gravity="center"
+        android:text="@string/no_data"
+        android:textColor="@color/dark_gray"
         android:textSize="26dp"
-        app:layout_constraintTop_toBottomOf="@+id/temperature_section"
-        tools:text="sunny" />
+        app:layout_constraintTop_toBottomOf="@+id/temperature_section" />
 
     <LinearLayout
         android:id="@+id/humidity_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,15 +130,26 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/label_humidity"
-            android:textSize="18dp"
+            android:textColor="@color/dark_gray"
+            android:textSize="22dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView_humidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            tools:text="humidity" />
+            android:text="@string/no_data"
+            android:textColor="@color/dark_gray"
+            android:textSize="22dp" />
+
+        <TextView
+            android:id="@+id/textView_humidity_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/humidity_unit"
+            android:textColor="@color/dark_gray"
+            android:textSize="22dp"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
@@ -150,15 +170,27 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/label_pressure"
-            android:textSize="18dp"
+            android:textColor="@color/dark_gray"
+            android:textSize="22dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView_pressure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            tools:text="pressure" />
+            android:text="@string/no_data"
+            android:textColor="@color/dark_gray"
+            android:textSize="22dp" />
+
+        <TextView
+            android:id="@+id/textView_pressure_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:text="@string/pressure_unit"
+            android:textColor="@color/dark_gray"
+            android:textSize="22dp"
+            android:visibility="invisible" />
 
     </LinearLayout>
 

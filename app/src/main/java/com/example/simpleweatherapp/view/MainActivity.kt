@@ -1,6 +1,7 @@
 package com.example.simpleweatherapp.view
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -21,19 +22,28 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         viewModel.getData(editText_city.text.toString())
 
-        button_search.setOnClickListener() {
-            viewModel.getData(editText_city.text.toString())
-        }
+        setListeners()
+        setObservers()
+    }
 
+    private fun setObservers() {
         viewModel.forecast.observe(
             this,
             Observer { updateData(it) })
     }
 
+    private fun setListeners() {
+        button_search.setOnClickListener() {
+            viewModel.getData(editText_city.text.toString())
+        }
+    }
+
     private fun updateData(forecast: Forecast) {
 
+        val icon = "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+
         Glide.with(this)
-            .load("http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png")
+            .load(icon)
             .override(80, 80)
             .into(imageView_icon)
 
@@ -41,9 +51,8 @@ class MainActivity : AppCompatActivity() {
         textView_description.text = forecast.weather[0].description
         textView_humidity.text = forecast.main.humidity.toString()
         textView_pressure.text = forecast.main.pressure.toString()
+
+        textView_humidity_unit.visibility = View.VISIBLE
+        textView_pressure_unit.visibility = View.VISIBLE
     }
 }
-
-
-// MVP_simple_sample
-// KotlinMVVM
