@@ -8,28 +8,20 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+object Repository {
 
-class Repository {
-
-    companion object {
-        const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
-        const val UNITS = "metric"
-        const val API_KEY = "69135546828ada76b54fe3f6e48c5498"
-    }
+    private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
+    private const val UNITS = "metric"
+    private const val API_KEY = "69135546828ada76b54fe3f6e48c5498"
 
     var forecast = MutableLiveData<Forecast>()
 
-    private var retrofit: Retrofit
-    private var apiService: APIService
+    private var retrofit: Retrofit = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
-    init {
-        retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        apiService = retrofit.create(APIService::class.java)
-    }
+    private var apiService: APIService = retrofit.create(APIService::class.java)
 
     fun getDataFromAPI(city: String, callback: RepositoryCallback<Forecast>) {
         apiService.getCurrentWeather(city, UNITS, API_KEY).enqueue(object : Callback<Forecast> {

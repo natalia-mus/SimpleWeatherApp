@@ -9,12 +9,10 @@ import com.example.simpleweatherapp.model.api.RepositoryCallback
 
 class MainActivityViewModel : ViewModel() {
 
-    private val model = Repository()
-
     val forecast = MutableLiveData<Forecast>()
 
     fun getData(city: String) {
-        model.getDataFromAPI(city, object : RepositoryCallback<Forecast> {
+        Repository.getDataFromAPI(city, object : RepositoryCallback<Forecast> {
             override fun onError(error: String?) {
                 Log.e("ViewModel", "ERROR")
             }
