@@ -28,7 +28,6 @@
             android:layout_weight="5"
             android:hint="@string/hint_city"
             android:singleLine="true"
-            android:text="@string/city_name"
             android:textAlignment="center"
             android:textColorLink="@color/white"
             android:textSize="28sp"

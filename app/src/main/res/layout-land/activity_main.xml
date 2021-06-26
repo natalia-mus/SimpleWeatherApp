@@ -98,7 +98,6 @@
             android:layout_weight="5"
             android:hint="@string/hint_city"
             android:singleLine="true"
-            android:text="@string/city_name"
             android:textAlignment="center"
             android:textColorLink="@color/white"
             android:textSize="28sp"
@@ -126,10 +125,10 @@
 
     <LinearLayout
         android:id="@+id/details_section"
-        android:padding="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="40dp"
         app:layout_constraintStart_toEndOf="@id/icon_section"
         app:layout_constraintTop_toBottomOf="@id/search_section">
 

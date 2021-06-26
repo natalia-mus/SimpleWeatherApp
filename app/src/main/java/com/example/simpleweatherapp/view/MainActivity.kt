@@ -3,7 +3,6 @@ package com.example.simpleweatherapp.view
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.simpleweatherapp.R
@@ -20,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        viewModel.getData(editText_city.text.toString())
 
         setListeners()
         setObservers()
@@ -29,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private fun setObservers() {
         viewModel.forecast.observe(
             this,
-            Observer { updateData(it) })
+            { updateData(it) })
     }
 
     private fun setListeners() {
