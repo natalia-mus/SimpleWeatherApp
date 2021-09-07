@@ -1,6 +1,5 @@
 package com.example.simpleweatherapp.model.api
 
-import androidx.lifecycle.MutableLiveData
 import com.example.simpleweatherapp.model.Forecast
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,8 +12,6 @@ object Repository {
     private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
     private const val UNITS = "metric"
     private const val API_KEY = "69135546828ada76b54fe3f6e48c5498"
-
-    var forecast = MutableLiveData<Forecast>()
 
     private var retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -32,7 +29,6 @@ object Repository {
             override fun onResponse(call: Call<Forecast>, response: Response<Forecast>) {
                 if (response.isSuccessful) {
                     callback.onSuccess(response.body())
-                    forecast.value = response.body()
                 }
             }
 
