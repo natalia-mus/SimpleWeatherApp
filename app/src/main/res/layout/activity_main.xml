@@ -58,6 +58,17 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/error_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/something_went_wrong"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
         <ImageView
             android:id="@+id/imageView_icon"
             android:layout_width="200dp"

@@ -25,9 +25,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setObservers() {
-        viewModel.forecast.observe(
-            this,
-            { updateData(it) })
+        viewModel.status.observe(this) { updateErrorInfo(it) }
+        viewModel.forecast.observe(this) { updateData(it) }
     }
 
     private fun setListeners() {
@@ -36,8 +35,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateData(forecast: Forecast) {
+    private fun updateErrorInfo(status: Boolean) {
+        if (status) {
+            error_label.visibility = View.GONE
+        } else {
+            error_label.visibility = View.VISIBLE
+        }
+    }
 
+    private fun updateData(forecast: Forecast) {
         val icon = "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
 
         Glide.with(this)
