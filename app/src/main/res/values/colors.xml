@@ -8,4 +8,5 @@
     <color name="light_blue_button">#0D81DA</color>
     <color name="gray">#C5C4C4</color>
     <color name="dark_gray">#5D6E70</color>
+    <color name="yellow">#FDD835</color>
 </resources>
