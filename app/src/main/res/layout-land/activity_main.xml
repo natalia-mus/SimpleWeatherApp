@@ -179,7 +179,7 @@
                     android:id="@+id/textView_humidity_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/humidity_unit"
+                    android:text="@string/percent"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
                     android:visibility="invisible" />
