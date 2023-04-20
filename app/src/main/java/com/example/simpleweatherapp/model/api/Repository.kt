@@ -9,6 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object Repository {
 
+    // https://api.openweathermap.org/data/2.5/weather?q=Krakow&units=metric&appid=69135546828ada76b54fe3f6e48c5498
+
     private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
     private const val UNITS = "metric"
     private const val API_KEY = "69135546828ada76b54fe3f6e48c5498"
