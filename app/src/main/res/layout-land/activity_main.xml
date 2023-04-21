@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageView_icon"
+                android:id="@+id/icon"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:src="@drawable/no_data"
@@ -43,10 +43,10 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_icon">
+                app:layout_constraintTop_toBottomOf="@+id/icon">
 
                 <TextView
-                    android:id="@+id/textView_temperature"
+                    android:id="@+id/temperature"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/default_temperature"
@@ -59,7 +59,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView_temperature_unit"
+                    android:id="@+id/temperature_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/temperature_unit"
@@ -74,7 +74,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView_description"
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
@@ -109,7 +109,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <EditText
-                    android:id="@+id/editText_city"
+                    android:id="@+id/city"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -159,7 +159,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/search_section">
 
                 <TextView
-                    android:id="@+id/textView_humidity_label"
+                    android:id="@+id/humidity_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -169,7 +169,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_humidity"
+                    android:id="@+id/humidity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no_data"
@@ -177,13 +177,13 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/textView_humidity_unit"
+                    android:id="@+id/humidity_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/percent"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -199,7 +199,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/humidity_section">
 
                 <TextView
-                    android:id="@+id/textView_pressure_label"
+                    android:id="@+id/pressure_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -209,7 +209,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_pressure"
+                    android:id="@+id/pressure"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no_data"
@@ -217,14 +217,14 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/textView_pressure_unit"
+                    android:id="@+id/pressure_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:text="@string/pressure_unit"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -240,7 +240,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/pressure_section">
 
                 <TextView
-                    android:id="@+id/textView_feelsLike_label"
+                    android:id="@+id/feelsLike_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -250,7 +250,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_feelsLike"
+                    android:id="@+id/feelsLike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no_data"
@@ -258,14 +258,14 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/textView_feelsLike_unit"
+                    android:id="@+id/feelsLike_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:text="@string/temperature_unit"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -281,7 +281,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/feelsLike_section">
 
                 <TextView
-                    android:id="@+id/textView_temperatureMin_label"
+                    android:id="@+id/temperatureMin_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -291,7 +291,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_temperatureMin"
+                    android:id="@+id/temperatureMin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no_data"
@@ -299,14 +299,14 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/textView_temperatureMin_unit"
+                    android:id="@+id/temperatureMin_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:text="@string/temperature_unit"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -322,7 +322,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/feelsLike_section">
 
                 <TextView
-                    android:id="@+id/textView_temperatureMax_label"
+                    android:id="@+id/temperatureMax_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -332,7 +332,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_temperatureMax"
+                    android:id="@+id/temperatureMax"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no_data"
@@ -340,14 +340,14 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/textView_temperatureMax_unit"
+                    android:id="@+id/temperatureMax_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:text="@string/temperature_unit"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -363,7 +363,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/temperatureMax_section">
 
                 <TextView
-                    android:id="@+id/textView_clouds_label"
+                    android:id="@+id/clouds_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -373,7 +373,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_clouds"
+                    android:id="@+id/clouds"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no_data"
@@ -381,13 +381,13 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/textView_clouds_unit"
+                    android:id="@+id/clouds_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/percent"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -403,7 +403,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/clouds_section">
 
                 <TextView
-                    android:id="@+id/textView_wind_label"
+                    android:id="@+id/wind_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -413,7 +413,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_wind"
+                    android:id="@+id/wind"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no_data"
@@ -421,14 +421,14 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/textView_wind_unit"
+                    android:id="@+id/wind_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:text="@string/wind_unit"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -444,7 +444,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/wind_section">
 
                 <TextView
-                    android:id="@+id/textView_sunrise_label"
+                    android:id="@+id/sunrise_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -454,7 +454,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_sunrise"
+                    android:id="@+id/sunrise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no_data"
@@ -476,7 +476,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/sunrise_section">
 
                 <TextView
-                    android:id="@+id/textView_sunset_label"
+                    android:id="@+id/sunset_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -486,7 +486,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_sunset"
+                    android:id="@+id/sunset"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/no_data"

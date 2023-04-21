@@ -1,20 +1,20 @@
 <resources>
     <string name="app_name">SimpleWeatherApp</string>
-    <string name="no_data">no data</string>
-    <string name="something_went_wrong">Something went wrong</string>
-    <string name="hint_city">city</string>
     <string name="default_temperature">0</string>
-    <string name="label_humidity">humidity</string>
-    <string name="label_pressure">pressure: </string>
-    <string name="label_feels_like">feels like: </string>
-    <string name="label_temperature_min">min: </string>
-    <string name="label_temperature_max">max: </string>
-    <string name="label_clouds">cloudiness: </string>
-    <string name="label_wind">wind: </string>
-    <string name="label_sunrise">sunrise: </string>
-    <string name="label_sunset">sunset: </string>
-    <string name="temperature_unit">°C</string>
-    <string name="pressure_unit">hPa</string>
-    <string name="wind_unit">m/s</string>
+    <string name="hint_city">city</string>
+    <string name="label_clouds">cloudiness:</string>
+    <string name="label_feels_like">feels like:</string>
+    <string name="label_humidity">humidity:</string>
+    <string name="label_pressure">pressure:</string>
+    <string name="label_sunrise">sunrise:</string>
+    <string name="label_sunset">sunset:</string>
+    <string name="label_temperature_max">max:</string>
+    <string name="label_temperature_min">min:</string>
+    <string name="label_wind">wind:</string>
+    <string name="no_data">no data</string>
     <string name="percent">%</string>
+    <string name="pressure_unit">hPa</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="temperature_unit">°C</string>
+    <string name="wind_unit">m/s</string>
 </resources>

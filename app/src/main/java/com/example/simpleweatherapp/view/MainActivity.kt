@@ -26,55 +26,10 @@ class MainActivity : AppCompatActivity() {
         setObservers()
     }
 
-    private fun setObservers() {
-        viewModel.status.observe(this) { updateErrorInfo(it) }
-        viewModel.forecast.observe(this) { updateData(it) }
-    }
-
-    private fun setListeners() {
-        button_search.setOnClickListener() {
-            viewModel.getData(editText_city.text.toString())
-        }
-    }
-
-    private fun updateErrorInfo(status: Boolean) {
-        if (status) {
-            error_label.visibility = View.GONE
-        } else {
-            error_label.visibility = View.VISIBLE
-        }
-    }
-
-    private fun updateData(forecast: Forecast) {
-        val icon = "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
-
-        Glide.with(this)
-            .load(icon)
-            .override(80, 80)
-            .into(imageView_icon)
-
-        textView_temperature.text = forecast.main.temperature.toString()
-        textView_description.text = forecast.weather[0].description
-        textView_humidity.text = forecast.main.humidity.toString()
-        textView_pressure.text = forecast.main.pressure.toString()
-        textView_feelsLike.text = forecast.main.feelsLike.toString()
-        textView_temperatureMin.text = forecast.main.tempMin.toString()
-        textView_temperatureMax.text = forecast.main.tempMax.toString()
-        textView_clouds.text = forecast.clouds.cloudiness.toString()
-        textView_wind.text = forecast.wind.speed.toString()
-
-        val sunrise = prepareTime(forecast.sys.sunrise, forecast.timeZone)
-        val sunset = prepareTime(forecast.sys.sunset, forecast.timeZone)
-        textView_sunrise.text = sunrise
-        textView_sunset.text = sunset
-
-        textView_humidity_unit.visibility = View.VISIBLE
-        textView_pressure_unit.visibility = View.VISIBLE
-        textView_feelsLike_unit.visibility = View.VISIBLE
-        textView_temperatureMin_unit.visibility = View.VISIBLE
-        textView_temperatureMax_unit.visibility = View.VISIBLE
-        textView_clouds_unit.visibility = View.VISIBLE
-        textView_wind_unit.visibility = View.VISIBLE
+    private fun getTimeZone(timeZoneMilliseconds: Long): String {
+        val timeZoneHours = timeZoneMilliseconds / 3600
+        val sign = if (timeZoneHours > 0) "+" else ""
+        return "GMT$sign$timeZoneHours:00"
     }
 
     private fun prepareTime(timestampInMilliseconds: Long, timeZoneInMilliseconds: Long): String {
@@ -85,10 +40,55 @@ class MainActivity : AppCompatActivity() {
         return dateFormat.format(date)
     }
 
-    private fun getTimeZone(timeZoneMilliseconds: Long): String {
-        val timeZoneHours = timeZoneMilliseconds / 3600
-        val sign = if (timeZoneHours > 0) "+" else ""
-        return "GMT$sign$timeZoneHours:00"
+    private fun setListeners() {
+        button_search.setOnClickListener() {
+            viewModel.getData(city.text.toString())
+        }
+    }
+
+    private fun setObservers() {
+        viewModel.status.observe(this) { updateErrorInfo(it) }
+        viewModel.forecast.observe(this) { updateData(it) }
+    }
+
+    private fun updateData(forecast: Forecast) {
+        val iconSource = "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+
+        Glide.with(this)
+            .load(iconSource)
+            .override(80, 80)
+            .into(icon)
+
+        temperature.text = forecast.main.temperature.toString()
+        description.text = forecast.weather[0].description
+        humidity.text = forecast.main.humidity.toString()
+        pressure.text = forecast.main.pressure.toString()
+        feelsLike.text = forecast.main.feelsLike.toString()
+        temperatureMin.text = forecast.main.tempMin.toString()
+        temperatureMax.text = forecast.main.tempMax.toString()
+        clouds.text = forecast.clouds.cloudiness.toString()
+        wind.text = forecast.wind.speed.toString()
+
+        val sunriseValue = prepareTime(forecast.sys.sunrise, forecast.timeZone)
+        val sunsetValue = prepareTime(forecast.sys.sunset, forecast.timeZone)
+        sunrise.text = sunriseValue
+        sunset.text = sunsetValue
+
+        humidity_unit.visibility = View.VISIBLE
+        pressure_unit.visibility = View.VISIBLE
+        feelsLike_unit.visibility = View.VISIBLE
+        temperatureMin_unit.visibility = View.VISIBLE
+        temperatureMax_unit.visibility = View.VISIBLE
+        clouds_unit.visibility = View.VISIBLE
+        wind_unit.visibility = View.VISIBLE
+    }
+
+    private fun updateErrorInfo(status: Boolean) {
+        if (status) {
+            error_label.visibility = View.GONE
+        } else {
+            error_label.visibility = View.VISIBLE
+        }
     }
 
 }
