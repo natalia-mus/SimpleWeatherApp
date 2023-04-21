@@ -183,7 +183,7 @@
                     android:text="@string/percent"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -224,7 +224,7 @@
                     android:text="@string/pressure_unit"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -265,7 +265,7 @@
                     android:text="@string/temperature_unit"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -306,7 +306,7 @@
                     android:text="@string/temperature_unit"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -347,7 +347,7 @@
                     android:text="@string/temperature_unit"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -387,7 +387,7 @@
                     android:text="@string/percent"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -428,7 +428,7 @@
                     android:text="@string/wind_unit"
                     android:textColor="@color/dark_gray"
                     android:textSize="22sp"
-                    android:visibility="invisible" />
+                    android:visibility="gone" />
 
             </LinearLayout>
 
