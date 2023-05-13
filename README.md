@@ -7,3 +7,9 @@ Simple weather app that allows to check actual forecast for given city all aroun
 Project was built according to the MVVM architecture. 
 
 API comes from [openweathermap.org/api](https://openweathermap.org/api). Background graphic and application icon comes from [pixabay.com](https://pixabay.com).
+
+<br/><br/>
+
+## Author
+
+[Natalia Muskała](https://github.com/natalia-mus)
