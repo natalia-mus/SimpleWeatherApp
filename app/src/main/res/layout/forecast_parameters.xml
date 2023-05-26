@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="30dp">
+
+    <include
+        android:id="@+id/humidity_tile"
+        layout="@layout/forecast_parameter_tile"
+        android:layout_width="@dimen/parameter_tile_size"
+        android:layout_height="@dimen/parameter_tile_size"
+        android:layout_marginVertical="@dimen/parameter_tile_margin"
+        app:layout_constraintBottom_toTopOf="@+id/temperatureMin_tile"
+        app:layout_constraintEnd_toStartOf="@+id/pressure_tile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/pressure_tile"
+        layout="@layout/forecast_parameter_tile"
+        android:layout_width="@dimen/parameter_tile_size"
+        android:layout_height="@dimen/parameter_tile_size"
+        android:layout_marginVertical="@dimen/parameter_tile_margin"
+        app:layout_constraintBottom_toTopOf="@id/temperatureMax_tile"
+        app:layout_constraintEnd_toStartOf="@+id/feelsLike_tile"
+        app:layout_constraintStart_toEndOf="@+id/humidity_tile"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/feelsLike_tile"
+        layout="@layout/forecast_parameter_tile"
+        android:layout_width="@dimen/parameter_tile_size"
+        android:layout_height="@dimen/parameter_tile_size"
+        android:layout_marginVertical="@dimen/parameter_tile_margin"
+        app:layout_constraintBottom_toTopOf="@id/clouds_tile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pressure_tile"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/temperatureMin_tile"
+        layout="@layout/forecast_parameter_tile"
+        android:layout_width="@dimen/parameter_tile_size"
+        android:layout_height="@dimen/parameter_tile_size"
+        android:layout_marginVertical="@dimen/parameter_tile_margin"
+        app:layout_constraintBottom_toTopOf="@id/wind_tile"
+        app:layout_constraintEnd_toStartOf="@+id/temperatureMax_tile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/humidity_tile" />
+
+    <include
+        android:id="@+id/temperatureMax_tile"
+        layout="@layout/forecast_parameter_tile"
+        android:layout_width="@dimen/parameter_tile_size"
+        android:layout_height="@dimen/parameter_tile_size"
+        android:layout_marginVertical="@dimen/parameter_tile_margin"
+        app:layout_constraintBottom_toTopOf="@id/sunrise_tile"
+        app:layout_constraintEnd_toStartOf="@+id/clouds_tile"
+        app:layout_constraintStart_toEndOf="@+id/temperatureMin_tile"
+        app:layout_constraintTop_toBottomOf="@id/pressure_tile" />
+
+    <include
+        android:id="@+id/clouds_tile"
+        layout="@layout/forecast_parameter_tile"
+        android:layout_width="@dimen/parameter_tile_size"
+        android:layout_height="@dimen/parameter_tile_size"
+        android:layout_marginVertical="@dimen/parameter_tile_margin"
+        app:layout_constraintBottom_toTopOf="@id/sunset_tile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/temperatureMax_tile"
+        app:layout_constraintTop_toBottomOf="@id/feelsLike_tile" />
+
+
+    <include
+        android:id="@+id/wind_tile"
+        layout="@layout/forecast_parameter_tile"
+        android:layout_width="@dimen/parameter_tile_size"
+        android:layout_height="@dimen/parameter_tile_size"
+        android:layout_marginVertical="@dimen/parameter_tile_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/sunrise_tile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/temperatureMin_tile" />
+
+    <include
+        android:id="@+id/sunrise_tile"
+        layout="@layout/forecast_parameter_tile"
+        android:layout_width="@dimen/parameter_tile_size"
+        android:layout_height="@dimen/parameter_tile_size"
+        android:layout_marginVertical="@dimen/parameter_tile_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/sunset_tile"
+        app:layout_constraintStart_toEndOf="@+id/wind_tile"
+        app:layout_constraintTop_toBottomOf="@id/temperatureMax_tile" />
+
+    <include
+        android:id="@+id/sunset_tile"
+        layout="@layout/forecast_parameter_tile"
+        android:layout_width="@dimen/parameter_tile_size"
+        android:layout_height="@dimen/parameter_tile_size"
+        android:layout_marginVertical="@dimen/parameter_tile_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sunrise_tile"
+        app:layout_constraintTop_toBottomOf="@id/clouds_tile" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

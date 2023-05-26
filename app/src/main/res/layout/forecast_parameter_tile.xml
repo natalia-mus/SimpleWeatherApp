@@ -2,16 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:background="@drawable/transparent_background">
+    android:layout_width="@dimen/parameter_tile_size"
+    android:layout_height="@dimen/parameter_tile_size"
+    android:background="@drawable/transparent_background"
+    android:paddingTop="10dp">
 
     <LinearLayout
         android:id="@+id/parameter_value_section"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/parameter_name_section"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,8 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:letterSpacing="-0.08"
-            android:textSize="40dp"
+            android:textSize="28dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,8 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:gravity="center_vertical"
-            android:textSize="26dp"
+            android:textSize="13dp"
             android:textStyle="bold"
             tools:text="%" />
 
@@ -51,14 +49,16 @@
 
         <ImageView
             android:id="@+id/parameter_icon"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:src="@drawable/ic_search" />
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_humidity" />
 
         <TextView
+            android:id="@+id/parameter_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="6dp"
+            android:textSize="13dp"
             android:textStyle="bold"
             tools:text="humidity" />
 
