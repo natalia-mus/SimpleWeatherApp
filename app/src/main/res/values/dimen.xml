@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="parameter_tile_margin">8dp</dimen>
-    <dimen name="parameter_tile_size">110dp</dimen>
-</resources>

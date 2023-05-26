@@ -5,12 +5,12 @@
     android:layout_width="@dimen/parameter_tile_size"
     android:layout_height="@dimen/parameter_tile_size"
     android:background="@drawable/transparent_background"
-    android:paddingTop="10dp">
+    android:paddingTop="@dimen/parameter_margin_top">
 
     <LinearLayout
         android:id="@+id/parameter_value_section"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/parameter_value_section_height"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/parameter_name_section"
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="28dp"
+            android:textSize="@dimen/parameter_value_text_size"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,8 +32,8 @@
             android:id="@+id/parameter_unit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:textSize="13dp"
+            android:layout_marginStart="@dimen/parameter_padding_start"
+            android:textSize="@dimen/parameter_unit_text_size"
             android:textStyle="bold"
             tools:text="%" />
 
@@ -49,16 +49,16 @@
 
         <ImageView
             android:id="@+id/parameter_icon"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="@dimen/parameter_icon_size"
+            android:layout_height="@dimen/parameter_icon_size"
             android:src="@drawable/ic_humidity" />
 
         <TextView
             android:id="@+id/parameter_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="6dp"
-            android:textSize="13dp"
+            android:paddingStart="@dimen/parameter_padding_start"
+            android:textSize="@dimen/parameter_name_text_size"
             android:textStyle="bold"
             tools:text="humidity" />
 
