@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="parameter_value_section_height">45dp</dimen>
+    <dimen name="parameter_name_text_size">15.7dp</dimen>
+    <dimen name="parameter_margin_top">24.1dp</dimen>
+    <dimen name="parameter_tile_margin">10.5dp</dimen>
+    <dimen name="parameter_tile_size">123.4dp</dimen>
+    <dimen name="parameter_unit_text_size">17.8dp</dimen>
+    <dimen name="parameter_icon_size">18.8dp</dimen>
+    <dimen name="parameter_padding_start">6.3dp</dimen>
+    <dimen name="parameter_value_text_size">28.2sp</dimen>
+</resources>

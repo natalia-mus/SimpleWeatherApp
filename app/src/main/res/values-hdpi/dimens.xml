@@ -1,11 +1,11 @@
 <resources>
-	<dimen name="parameter_tile_size">168dp</dimen>
-	<dimen name="parameter_tile_margin">15dp</dimen>
-	<dimen name="parameter_value_text_size">48sp</dimen>
-	<dimen name="parameter_unit_text_size">33dp</dimen>
-	<dimen name="parameter_name_text_size">22.5dp</dimen>
-	<dimen name="parameter_icon_size">21dp</dimen>
-	<dimen name="parameter_margin_top">33dp</dimen>
-	<dimen name="parameter_padding_start">15dp</dimen>
-	<dimen name="parameter_value_section_height">64.5dp</dimen>
+    <dimen name="parameter_value_section_height">64.5dp</dimen>
+    <dimen name="parameter_name_text_size">22.5dp</dimen>
+    <dimen name="parameter_margin_top">34.5dp</dimen>
+    <dimen name="parameter_tile_margin">15dp</dimen>
+    <dimen name="parameter_tile_size">177dp</dimen>
+    <dimen name="parameter_unit_text_size">25.5dp</dimen>
+    <dimen name="parameter_icon_size">27dp</dimen>
+    <dimen name="parameter_padding_start">9dp</dimen>
+    <dimen name="parameter_value_text_size">40.5sp</dimen>
 </resources>

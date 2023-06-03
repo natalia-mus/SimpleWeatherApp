@@ -35,6 +35,7 @@
             android:layout_marginStart="@dimen/parameter_padding_start"
             android:textSize="@dimen/parameter_unit_text_size"
             android:textStyle="bold"
+            android:visibility="gone"
             tools:text="%" />
 
     </LinearLayout>
@@ -51,7 +52,8 @@
             android:id="@+id/parameter_icon"
             android:layout_width="@dimen/parameter_icon_size"
             android:layout_height="@dimen/parameter_icon_size"
-            android:src="@drawable/ic_humidity" />
+            android:src="@drawable/ic_humidity"
+            app:tint="@color/icon_color" />
 
         <TextView
             android:id="@+id/parameter_name"
