@@ -54,13 +54,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateData(forecast: Forecast) {
-        val iconSource = "http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
-
-        Glide.with(this)
-            .load(iconSource)
-            .override(80, 80)
-            .into(icon)
-
         temperature.text = forecast.main.temperature.toString()
         description.text = forecast.weather[0].description
 

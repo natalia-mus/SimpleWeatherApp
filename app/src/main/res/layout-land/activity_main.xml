@@ -30,13 +30,13 @@
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:src="@drawable/no_data"
-                app:layout_constraintBottom_toTopOf="@+id/temperature_section"
+                app:layout_constraintBottom_toTopOf="@+id/forecast_section"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/search_section" />
 
             <LinearLayout
-                android:id="@+id/temperature_section"
+                android:id="@+id/forecast_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -83,7 +83,7 @@
                 android:text="@string/no_data"
                 android:textColor="@color/dark_gray"
                 android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@+id/temperature_section" />
+                app:layout_constraintTop_toBottomOf="@+id/forecast_section" />
 
         </LinearLayout>
 
@@ -95,7 +95,7 @@
             android:layout_marginTop="40dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/temperature_section"
+            app:layout_constraintStart_toEndOf="@id/forecast_section"
             app:layout_constraintTop_toBottomOf="@id/search_section">
 
             <LinearLayout
@@ -130,7 +130,7 @@
                     android:layout_margin="20dp"
                     android:layout_weight="0"
                     android:adjustViewBounds="true"
-                    android:background="@drawable/button_background"
+                    android:background="@color/transparent"
                     android:foreground="@drawable/ic_search_foreground"
                     android:padding="10dp" />
 
