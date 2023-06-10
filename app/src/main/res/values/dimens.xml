@@ -8,4 +8,15 @@
     <dimen name="parameter_margin_top">23dp</dimen>
     <dimen name="parameter_padding_start">6dp</dimen>
     <dimen name="parameter_value_text_size">27sp</dimen>
+    <dimen name="main_activity_margin_vertical">40dp</dimen>
+    <dimen name="main_activity_search_section_margin_horizontal">12dp</dimen>
+    <dimen name="main_activity_search_section_padding_horizontal">30dp</dimen>
+    <dimen name="main_activity_search_section_padding_vertical">4dp</dimen>
+    <dimen name="main_activity_search_section_text_size">28sp</dimen>
+    <dimen name="main_activity_search_button">50dp</dimen>
+    <dimen name="main_activity_error_text_size">18sp</dimen>
+    <dimen name="main_activity_forecast_tile_padding">20dp</dimen>
+    <dimen name="main_activity_temperature_text_size">80sp</dimen>
+    <dimen name="main_activity_temperature_unit_text_size">45sp</dimen>
+    <dimen name="main_activity_description_text_size">26sp</dimen>
 </resources>

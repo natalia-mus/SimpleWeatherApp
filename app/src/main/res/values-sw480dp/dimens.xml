@@ -1,11 +1,22 @@
 <resources>
-    <dimen name="parameter_value_section_height">52.5dp</dimen>
-    <dimen name="parameter_name_text_size">18.3dp</dimen>
-    <dimen name="parameter_margin_top">28.1dp</dimen>
-    <dimen name="parameter_tile_margin">12.2dp</dimen>
-    <dimen name="parameter_tile_size">144.1dp</dimen>
-    <dimen name="parameter_unit_text_size">20.8dp</dimen>
-    <dimen name="parameter_icon_size">22dp</dimen>
-    <dimen name="parameter_padding_start">7.3dp</dimen>
-    <dimen name="parameter_value_text_size">33sp</dimen>
+	<dimen name="parameter_value_section_height">52.5dp</dimen>
+	<dimen name="parameter_name_text_size">18.3sp</dimen>
+	<dimen name="parameter_margin_top">28.1dp</dimen>
+	<dimen name="parameter_tile_margin">12.2dp</dimen>
+	<dimen name="parameter_tile_size">144.1dp</dimen>
+	<dimen name="parameter_unit_text_size">20.8sp</dimen>
+	<dimen name="parameter_icon_size">22dp</dimen>
+	<dimen name="parameter_padding_start">7.3dp</dimen>
+	<dimen name="parameter_value_text_size">33sp</dimen>
+	<dimen name="main_activity_margin_vertical">48.8dp</dimen>
+	<dimen name="main_activity_search_section_padding_horizontal">36.6dp</dimen>
+	<dimen name="main_activity_search_section_padding_vertical">4.9dp</dimen>
+	<dimen name="main_activity_search_section_margin_horizontal">14.7dp</dimen>
+	<dimen name="main_activity_search_section_text_size">34.2sp</dimen>
+	<dimen name="main_activity_search_button">61dp</dimen>
+	<dimen name="main_activity_error_text_size">22sp</dimen>
+	<dimen name="main_activity_forecast_tile_padding">24.4dp</dimen>
+	<dimen name="main_activity_temperature_text_size">97.7sp</dimen>
+	<dimen name="main_activity_temperature_unit_text_size">54.9sp</dimen>
+	<dimen name="main_activity_description_text_size">31.7sp</dimen>
 </resources>
