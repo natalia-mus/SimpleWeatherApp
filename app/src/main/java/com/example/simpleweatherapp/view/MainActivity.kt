@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateView(visible: Boolean) {
-        main_tile.visibility = if (visible) View.VISIBLE else View.GONE
+        main_tile.visibility = if (visible) View.VISIBLE else View.INVISIBLE
         humidity_tile.visibility = if (visible) View.VISIBLE else View.GONE
         pressure_tile.visibility = if (visible) View.VISIBLE else View.GONE
         feelsLike_tile.visibility = if (visible) View.VISIBLE else View.GONE
