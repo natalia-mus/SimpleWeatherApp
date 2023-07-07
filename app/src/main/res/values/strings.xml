@@ -14,7 +14,7 @@
     <string name="no_data">no data</string>
     <string name="percent">%</string>
     <string name="pressure_unit">hPa</string>
-    <string name="something_went_wrong">Something went wrong</string>
+    <string name="something_went_wrong">something went wrong, try again</string>
     <string name="temperature_unit">°C</string>
     <string name="wind_unit">m/s</string>
 </resources>

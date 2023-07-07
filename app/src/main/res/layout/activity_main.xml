@@ -60,9 +60,10 @@
             android:id="@+id/error_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_activity_error_label_top_margin"
             android:text="@string/something_went_wrong"
             android:textAlignment="center"
-            android:textColor="@color/yellow"
+            android:textColor="@color/white_transparent"
             android:textSize="@dimen/main_activity_error_text_size"
             android:textStyle="bold"
             android:visibility="gone" />

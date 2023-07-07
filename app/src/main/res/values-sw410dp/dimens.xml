@@ -20,4 +20,5 @@
 	<dimen name="main_activity_temperature_unit_text_size">46.9sp</dimen>
 	<dimen name="main_activity_description_text_size">27.1sp</dimen>
 	<dimen name="forecast_parameters_vertical_margin">31.3dp</dimen>
+	<dimen name="main_activity_error_label_top_margin">10.4dp</dimen>
 </resources>
