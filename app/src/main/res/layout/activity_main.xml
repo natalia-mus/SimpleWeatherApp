@@ -68,6 +68,7 @@
             android:visibility="gone" />
 
         <LinearLayout
+            android:id="@+id/main_tile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/main_activity_search_section_margin_horizontal"

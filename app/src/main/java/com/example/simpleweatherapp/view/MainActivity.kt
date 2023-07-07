@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.Glide
 import com.example.simpleweatherapp.R
 import com.example.simpleweatherapp.model.Forecast
 import com.example.simpleweatherapp.viewmodel.MainActivityViewModel
@@ -26,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         setListeners()
         setObservers()
+        updateView(false)
     }
 
     private fun getTimeZone(timeZoneMilliseconds: Long): String {
@@ -121,10 +121,26 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateErrorInfo(status: Boolean) {
         if (status) {
+            updateView(true)
             error_label.visibility = View.GONE
+
         } else {
+            updateView(false)
             error_label.visibility = View.VISIBLE
         }
+    }
+
+    private fun updateView(visible: Boolean) {
+        main_tile.visibility = if (visible) View.VISIBLE else View.GONE
+        humidity_tile.visibility = if (visible) View.VISIBLE else View.GONE
+        pressure_tile.visibility = if (visible) View.VISIBLE else View.GONE
+        feelsLike_tile.visibility = if (visible) View.VISIBLE else View.GONE
+        temperatureMin_tile.visibility = if (visible) View.VISIBLE else View.GONE
+        temperatureMax_tile.visibility = if (visible) View.VISIBLE else View.GONE
+        clouds_tile.visibility = if (visible) View.VISIBLE else View.GONE
+        wind_tile.visibility = if (visible) View.VISIBLE else View.GONE
+        sunrise_tile.visibility = if (visible) View.VISIBLE else View.GONE
+        sunset_tile.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
 }
