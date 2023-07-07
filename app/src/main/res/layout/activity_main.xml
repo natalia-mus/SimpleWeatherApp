@@ -130,7 +130,7 @@
             layout="@layout/forecast_parameters"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginVertical="30dp" />
+            android:layout_marginVertical="@dimen/forecast_parameters_vertical_margin" />
 
     </LinearLayout>
 
