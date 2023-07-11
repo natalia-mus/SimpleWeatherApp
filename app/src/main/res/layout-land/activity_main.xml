@@ -1,42 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/background_portrait"
+    android:orientation="horizontal"
+    android:weightSum="2"
     tools:context=".view.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="70dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_section"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/main_activity_search_section_margin_horizontal"
+            android:layout_weight="1"
+            android:background="@drawable/transparent_background_round"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+
+            android:paddingVertical="@dimen/main_activity_search_section_padding_vertical"
+            android:paddingStart="@dimen/main_activity_search_section_padding_horizontal">
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/main_activity_search_section_margin_horizontal"
+                android:background="@color/transparent"
+                android:hint="@string/hint_city"
+                android:singleLine="true"
+                android:textSize="@dimen/main_activity_search_section_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/button_search"
+                android:layout_width="@dimen/main_activity_search_button"
+                android:layout_height="@dimen/main_activity_search_button"
+                android:layout_marginEnd="@dimen/main_activity_search_section_margin_horizontal"
+                android:adjustViewBounds="true"
+                android:background="@drawable/button_background"
+                android:foreground="@drawable/ic_search_foreground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/city"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/error_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/main_activity_error_label_top_margin"
+            android:text="@string/something_went_wrong"
+            android:textAlignment="center"
+            android:textColor="@color/white_transparent"
+            android:textSize="@dimen/main_activity_error_text_size"
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <LinearLayout
-            android:id="@+id/icon_section"
-            android:layout_width="wrap_content"
+            android:id="@+id/main_tile"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginHorizontal="@dimen/main_activity_search_section_margin_horizontal"
+            android:layout_marginTop="@dimen/main_activity_search_section_padding_horizontal"
+            android:background="@drawable/transparent_background"
             android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@id/search_section"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/icon"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/no_data"
-                app:layout_constraintBottom_toTopOf="@+id/temperature_section"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search_section" />
+            android:padding="@dimen/main_activity_forecast_tile_padding">
 
             <LinearLayout
-                android:id="@+id/temperature_section"
+                android:id="@+id/forecast_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -50,21 +95,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/default_temperature"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="50sp"
+                    android:textSize="@dimen/main_activity_temperature_text_size"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="28.43" />
 
                 <TextView
                     android:id="@+id/temperature_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/temperature_unit"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/main_activity_temperature_unit_text_size"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -78,425 +122,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
-                android:layout_marginBottom="60dp"
                 android:gravity="center"
                 android:text="@string/no_data"
-                android:textColor="@color/dark_gray"
-                android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@+id/temperature_section" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/search_and_details_section"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="40dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/temperature_section"
-            app:layout_constraintTop_toBottomOf="@id/search_section">
-
-            <LinearLayout
-                android:id="@+id/search_section"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/icon_section"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <EditText
-                    android:id="@+id/city"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="5"
-                    android:hint="@string/hint_city"
-                    android:maxWidth="350dp"
-                    android:minWidth="250dp"
-                    android:singleLine="true"
-                    android:textAlignment="center"
-                    android:textColorLink="@color/white"
-                    android:textSize="28sp" />
-
-                <ImageButton
-                    android:id="@+id/button_search"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="20dp"
-                    android:layout_weight="0"
-                    android:adjustViewBounds="true"
-                    android:background="@drawable/button_background"
-                    android:foreground="@drawable/ic_search_foreground"
-                    android:padding="10dp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/error_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/something_went_wrong"
-                android:textAlignment="center"
-                android:textColor="@color/yellow"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:visibility="gone" />
-
-            <LinearLayout
-                android:id="@+id/humidity_section"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="60dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search_section">
-
-                <TextView
-                    android:id="@+id/humidity_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/label_humidity"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/humidity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_data"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp" />
-
-                <TextView
-                    android:id="@+id/humidity_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/percent"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/pressure_section"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/humidity_section">
-
-                <TextView
-                    android:id="@+id/pressure_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/label_pressure"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/pressure"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_data"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp" />
-
-                <TextView
-                    android:id="@+id/pressure_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
-                    android:text="@string/pressure_unit"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/feelsLike_section"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pressure_section">
-
-                <TextView
-                    android:id="@+id/feelsLike_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/label_feels_like"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/feelsLike"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_data"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp" />
-
-                <TextView
-                    android:id="@+id/feelsLike_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
-                    android:text="@string/temperature_unit"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/temperatureMin_section"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/feelsLike_section">
-
-                <TextView
-                    android:id="@+id/temperatureMin_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/label_temperature_min"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/temperatureMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_data"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp" />
-
-                <TextView
-                    android:id="@+id/temperatureMin_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
-                    android:text="@string/temperature_unit"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/temperatureMax_section"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/feelsLike_section">
-
-                <TextView
-                    android:id="@+id/temperatureMax_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/label_temperature_max"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/temperatureMax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_data"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp" />
-
-                <TextView
-                    android:id="@+id/temperatureMax_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
-                    android:text="@string/temperature_unit"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/clouds_section"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/temperatureMax_section">
-
-                <TextView
-                    android:id="@+id/clouds_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/label_clouds"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/clouds"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_data"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp" />
-
-                <TextView
-                    android:id="@+id/clouds_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/percent"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/wind_section"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/clouds_section">
-
-                <TextView
-                    android:id="@+id/wind_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/label_wind"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/wind"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_data"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp" />
-
-                <TextView
-                    android:id="@+id/wind_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
-                    android:text="@string/wind_unit"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/sunrise_section"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/wind_section">
-
-                <TextView
-                    android:id="@+id/sunrise_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/label_sunrise"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/sunrise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_data"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/sunset_section"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sunrise_section">
-
-                <TextView
-                    android:id="@+id/sunset_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/label_sunset"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/sunset"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_data"
-                    android:textColor="@color/dark_gray"
-                    android:textSize="22sp" />
-
-            </LinearLayout>
+                android:textSize="@dimen/main_activity_description_text_size"
+                app:layout_constraintTop_toBottomOf="@+id/forecast_section" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-</ScrollView>
+    <include
+        android:id="@+id/forecast_parameters"
+        layout="@layout/forecast_parameters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+</LinearLayout>

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="color_primary">#121212</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="dark_blue">#8B0079D5</color>
-    <color name="light_blue">#8B0E97FF</color>
-    <color name="dark_blue_button">#005B9F</color>
-    <color name="light_blue_button">#0D81DA</color>
     <color name="gray">#C5C4C4</color>
     <color name="dark_gray">#5D6E70</color>
     <color name="yellow">#FDD835</color>
+    <color name="white_transparent">#6FFFFFFF</color>
+    <color name="white_transparent_dark">#37FFFFFF</color>
+    <color name="icon_color">#EAEAEA</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
