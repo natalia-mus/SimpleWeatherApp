@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
     private fun setListeners() {
         button_search.setOnClickListener() {
             hideKeyboard()
+            progressBar.visibility = View.VISIBLE
             viewModel.getData(city.text.toString())
         }
     }
@@ -68,49 +69,42 @@ class MainActivity : AppCompatActivity() {
 
         // humidity:
         humidity_tile.parameter_value.text = forecast.main.humidity.toString()
-        humidity_tile.parameter_unit.visibility = View.VISIBLE
         humidity_tile.parameter_unit.text = getString(R.string.percent)
         humidity_tile.parameter_icon.setImageResource(R.drawable.ic_humidity)
         humidity_tile.parameter_name.text = getString(R.string.label_humidity)
 
         // pressure:
         pressure_tile.parameter_value.text = forecast.main.pressure.toString()
-        pressure_tile.parameter_unit.visibility = View.VISIBLE
         pressure_tile.parameter_unit.text = getString(R.string.pressure_unit)
         pressure_tile.parameter_icon.setImageResource(R.drawable.ic_pressure)
         pressure_tile.parameter_name.text = getString(R.string.label_pressure)
 
         // feelsLike:
         feelsLike_tile.parameter_value.text = forecast.main.feelsLike.toString()
-        feelsLike_tile.parameter_unit.visibility = View.VISIBLE
         feelsLike_tile.parameter_unit.text = getString(R.string.temperature_unit)
         feelsLike_tile.parameter_icon.setImageResource(R.drawable.ic_feels_like)
         feelsLike_tile.parameter_name.text = getString(R.string.label_feels_like)
 
         // temperatureMin:
         temperatureMin_tile.parameter_value.text = forecast.main.tempMin.toString()
-        temperatureMin_tile.parameter_unit.visibility = View.VISIBLE
         temperatureMin_tile.parameter_unit.text = getString(R.string.temperature_unit)
         temperatureMin_tile.parameter_icon.setImageResource(R.drawable.ic_min_temperature)
         temperatureMin_tile.parameter_name.text = getString(R.string.label_temperature_min)
 
         // temperatureMax:
         temperatureMax_tile.parameter_value.text = forecast.main.tempMax.toString()
-        temperatureMax_tile.parameter_unit.visibility = View.VISIBLE
         temperatureMax_tile.parameter_unit.text = getString(R.string.temperature_unit)
         temperatureMax_tile.parameter_icon.setImageResource(R.drawable.ic_max_temperature)
         temperatureMax_tile.parameter_name.text = getString(R.string.label_temperature_max)
 
         // clouds:
         clouds_tile.parameter_value.text = forecast.clouds.cloudiness.toString()
-        clouds_tile.parameter_unit.visibility = View.VISIBLE
         clouds_tile.parameter_unit.text = getString(R.string.percent)
         clouds_tile.parameter_icon.setImageResource(R.drawable.ic_clouds)
         clouds_tile.parameter_name.text = getString(R.string.label_clouds)
 
         // wind:
         wind_tile.parameter_value.text = forecast.wind.speed.toString()
-        wind_tile.parameter_unit.visibility = View.VISIBLE
         wind_tile.parameter_unit.text = getString(R.string.wind_unit)
         wind_tile.parameter_icon.setImageResource(R.drawable.ic_wind)
         wind_tile.parameter_name.text = getString(R.string.label_wind)
@@ -139,17 +133,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateView(visible: Boolean) {
-        main_tile.visibility = if (visible) View.VISIBLE else View.INVISIBLE
-        humidity_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        pressure_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        feelsLike_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        temperatureMin_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        temperatureMax_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        clouds_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        wind_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        sunrise_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        sunset_tile.visibility = if (visible) View.VISIBLE else View.GONE
+    private fun updateView(status: Boolean) {
+        main_tile.visibility = if (status) View.VISIBLE else View.INVISIBLE
+        forecast_parameters.visibility = if (status) View.VISIBLE else View.INVISIBLE
+        progressBar.visibility = if (status) View.GONE else View.INVISIBLE
     }
 
 }
