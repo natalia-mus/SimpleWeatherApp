@@ -1,7 +1,9 @@
 package com.example.simpleweatherapp.view
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.simpleweatherapp.R
@@ -34,6 +36,12 @@ class MainActivity : AppCompatActivity() {
         return "GMT$sign$timeZoneHours:00"
     }
 
+    private fun hideKeyboard() {
+        val inputMethodManager = this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val view = (this as Activity).findViewById<View>(android.R.id.content).rootView
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
     private fun prepareTime(timestampInMilliseconds: Long, timeZoneInMilliseconds: Long): String {
         val date = Date(timestampInMilliseconds * 1000)
         val dateFormat = SimpleDateFormat("HH:mm")
@@ -44,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setListeners() {
         button_search.setOnClickListener() {
+            hideKeyboard()
             viewModel.getData(city.text.toString())
         }
     }
