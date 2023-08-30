@@ -95,7 +95,8 @@
             android:layout_marginTop="@dimen/main_activity_search_section_padding_horizontal"
             android:background="@drawable/transparent_background"
             android:orientation="vertical"
-            android:padding="@dimen/main_activity_forecast_tile_padding">
+            android:padding="@dimen/main_activity_forecast_tile_padding"
+            android:visibility="invisible">
 
             <LinearLayout
                 android:id="@+id/forecast_section"
@@ -153,6 +154,7 @@
         layout="@layout/forecast_parameters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:visibility="invisible" />
 
 </LinearLayout>
