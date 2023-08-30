@@ -1,7 +1,9 @@
 package com.example.simpleweatherapp.view
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.simpleweatherapp.R
@@ -25,13 +27,18 @@ class MainActivity : AppCompatActivity() {
 
         setListeners()
         setObservers()
-        updateView(false)
     }
 
     private fun getTimeZone(timeZoneMilliseconds: Long): String {
         val timeZoneHours = timeZoneMilliseconds / 3600
         val sign = if (timeZoneHours > 0) "+" else ""
         return "GMT$sign$timeZoneHours:00"
+    }
+
+    private fun hideKeyboard() {
+        val inputMethodManager = this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val view = (this as Activity).findViewById<View>(android.R.id.content).rootView
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun prepareTime(timestampInMilliseconds: Long, timeZoneInMilliseconds: Long): String {
@@ -44,12 +51,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun setListeners() {
         button_search.setOnClickListener() {
+            hideKeyboard()
+            progressBar.visibility = View.VISIBLE
             viewModel.getData(city.text.toString())
         }
     }
 
     private fun setObservers() {
-        viewModel.status.observe(this) { updateErrorInfo(it) }
+        viewModel.status.observe(this) { updateStatus(it) }
         viewModel.forecast.observe(this) { updateData(it) }
     }
 
@@ -119,7 +128,7 @@ class MainActivity : AppCompatActivity() {
         sunset_tile.parameter_name.text = getString(R.string.label_sunset)
     }
 
-    private fun updateErrorInfo(status: Boolean) {
+    private fun updateStatus(status: Boolean) {
         if (status) {
             updateView(true)
             error_label.visibility = View.GONE
@@ -130,17 +139,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateView(visible: Boolean) {
-        main_tile.visibility = if (visible) View.VISIBLE else View.INVISIBLE
-        humidity_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        pressure_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        feelsLike_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        temperatureMin_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        temperatureMax_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        clouds_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        wind_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        sunrise_tile.visibility = if (visible) View.VISIBLE else View.GONE
-        sunset_tile.visibility = if (visible) View.VISIBLE else View.GONE
+    private fun updateView(status: Boolean) {
+        main_tile.visibility = if (status) View.VISIBLE else View.INVISIBLE
+        forecast_parameters.visibility = if (status) View.VISIBLE else View.INVISIBLE
+        progressBar.visibility = View.GONE
     }
 
 }
