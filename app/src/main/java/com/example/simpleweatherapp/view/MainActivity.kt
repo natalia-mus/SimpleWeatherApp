@@ -7,6 +7,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.simpleweatherapp.R
+import com.example.simpleweatherapp.UserPreferences
 import com.example.simpleweatherapp.model.Forecast
 import com.example.simpleweatherapp.viewmodel.MainActivityViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,16 +18,29 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel: MainActivityViewModel
+    private lateinit var viewModel: MainActivityViewModel
+
+    private lateinit var userPreferences: UserPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        userPreferences = UserPreferences(this)
 
         setListeners()
         setObservers()
+        checkIfCityIsSaved()
+    }
+
+    private fun checkIfCityIsSaved() {
+        val cityName = userPreferences.getCity()
+
+        if (cityName != null && cityName.isNotEmpty()) {
+            city.setText(cityName)
+            search()
+        }
     }
 
     private fun getTimeZone(timeZoneMilliseconds: Long): String {
@@ -49,11 +63,15 @@ class MainActivity : AppCompatActivity() {
         return dateFormat.format(date)
     }
 
+    private fun search() {
+        hideKeyboard()
+        progressBar.visibility = View.VISIBLE
+        viewModel.getData(city.text.toString())
+    }
+
     private fun setListeners() {
         button_search.setOnClickListener() {
-            hideKeyboard()
-            progressBar.visibility = View.VISIBLE
-            viewModel.getData(city.text.toString())
+            search()
         }
     }
 

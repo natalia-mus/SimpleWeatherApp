@@ -3,33 +3,32 @@ package com.example.simpleweatherapp
 import android.content.Context
 import android.content.SharedPreferences
 
-object UserPreferences {
+class UserPreferences(context: Context) {
 
-    private const val CITY = "city"
-
-    private var instance: SharedPreferences? = null
-
-
-    fun getCity(context: Context): String? {
-        return getInstance(context).getString(CITY, null)
+    private companion object {
+        const val CITY = "city"
+        const val USER_PREFERENCES = "user_preferences"
     }
 
-    fun saveCity(city: String, context: Context) {
-        getInstance(context).edit().putString(CITY, city).apply()
+    private val instance: SharedPreferences
+
+    init {
+        instance = context.getSharedPreferences(getUserPreferencesName(context), Context.MODE_PRIVATE)
     }
 
-    private fun getInstance(context: Context): SharedPreferences {
-        if (instance == null) {
-            instance = context.getSharedPreferences(getUserPreferencesName(context), Context.MODE_PRIVATE)
-        }
-        return instance!!
+    fun getCity(): String? {
+        return instance.getString(CITY, null)
+    }
+
+    fun saveCity(city: String) {
+        instance.edit().putString(CITY, city).apply()
     }
 
     private fun getUserPreferencesName(context: Context): String {
         val name = StringBuilder()
         name.append(context.packageName)
         name.append(".")
-        name.append("user_preferences")
+        name.append(USER_PREFERENCES)
         return name.toString()
     }
 }
