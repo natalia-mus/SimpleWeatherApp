@@ -64,13 +64,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun search() {
-        hideKeyboard()
-        progressBar.visibility = View.VISIBLE
-        viewModel.getData(city.text.toString())
+        if (city.text != null && city.text.toString().isNotEmpty()) {
+            hideKeyboard()
+            progressBar.visibility = View.VISIBLE
+            viewModel.getData(city.text.toString())
+        }
     }
 
     private fun setListeners() {
         button_search.setOnClickListener() {
+            userPreferences.saveCity(city.text.toString())
             search()
         }
     }

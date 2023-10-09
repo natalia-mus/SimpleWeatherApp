@@ -21,7 +21,9 @@ class UserPreferences(context: Context) {
     }
 
     fun saveCity(city: String) {
-        instance.edit().putString(CITY, city).apply()
+        if (city != getCity()) {
+            instance.edit().putString(CITY, city).apply()
+        }
     }
 
     private fun getUserPreferencesName(context: Context): String {
